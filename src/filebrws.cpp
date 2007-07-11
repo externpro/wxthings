@@ -2165,7 +2165,7 @@ void wxFileBrowser::OnListMenu(wxCommandEvent &event)
                                 wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );
 
                 wxScrolledWindow *scrWin = new wxScrolledWindow(&dialog, -1);
-                wxStaticBitmap *statBitmap = new wxStaticBitmap(scrWin, -1, wxBitmap(image));
+                //wxStaticBitmap *statBitmap = new wxStaticBitmap(scrWin, -1, wxBitmap(image));
 
                 // not necessary in MSW
                 int ext = 0; //dialog.GetSize().GetWidth() - dialog.GetClientSize().GetWidth();
