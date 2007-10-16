@@ -25,6 +25,11 @@
 #include "wx/things/spinctld.h"
 #include <math.h>
 
+//These 3 lines added by SC@SDL on 10/5/07 for Solaris compile:
+#if defined(__GNUG__) || defined(__GNUWIN32__) || defined(__SUNCC__)
+#include <ieeefp.h>
+#endif
+
 #if wxCHECK_VERSION(2,5,0)
     #include "wx/math.h"
 #else

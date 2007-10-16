@@ -22,6 +22,9 @@
 #include "wx/things/genergdi.h"
 #include "wx/tokenzr.h"
 
+//This next line added by SC@SDL on 10/5/07 for Solaris compile:
+#include <wx/bitmap.h>
+
 const wxGenericColour wxNullGenericColour;
 const wxGenericPen    wxNullGenericPen;
 const wxGenericBrush  wxNullGenericBrush;
