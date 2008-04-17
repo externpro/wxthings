@@ -18,106 +18,8 @@
 	</ToolFiles>
 	<Configurations>
 		<Configuration
-			Name="ReleaseDLL|Win32"
-			OutputDirectory="..\lib\_MSVC_$(PlatformName)_$(ConfigurationName)"
-			IntermediateDirectory="_MSVC_$(PlatformName)_$(ConfigurationName)"
-			ConfigurationType="2"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
-			UseOfMFC="0"
-			ATLMinimizesCRunTimeLibraryUsage="false"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-				PreprocessorDefinitions="WIN32,_USRDLL,DLL_EXPORTS,WXUSINGDLL,__WXMSW__,WXMAKINGDLL_WXTHINGS"
-				MkTypLibCompatible="true"
-				SuppressStartupBanner="true"
-				TargetEnvironment="1"
-				TypeLibraryName=".\..\lib/wxthings_wxthings.tlb"
-				HeaderFileName=""
-			/>
-			<Tool
-				Name="VCCLCompilerTool"
-				AdditionalOptions="/EHsc "
-				Optimization="2"
-				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..\include;&quot;$(WXWIN)\include&quot;;&quot;$(WXWIN)\lib\vc_dll\msw&quot;;&quot;$(WXWIN)\include\wxwidgets&quot;;&quot;$(WXWIN)\lib_$(PlatformName)\vc_dll\msw&quot;"
-				PreprocessorDefinitions="WIN32;_USRDLL;DLL_EXPORTS;WXUSINGDLL;__WXMSW__;WXMAKINGDLL_WXTHINGS"
-				StringPooling="true"
-				RuntimeLibrary="2"
-				EnableFunctionLevelLinking="true"
-				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile="$(IntDir)\wxthings_wxthings.pch"
-				AssemblerListingLocation="$(IntDir)\"
-				ObjectFile="$(IntDir)\"
-				ProgramDataBaseFileName="$(OutDir)\$(ProjectName)_dll.pdb"
-				SuppressStartupBanner="true"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="WXUSINGDLL,__WXMSW__,WXMAKINGDLL_WXTHINGS"
-				Culture="1033"
-				AdditionalIncludeDirectories="$(WXWIN)\lib\vc_dll\msw;$(WXWIN)\include;..\include"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCLinkerTool"
-				AdditionalDependencies="wxmsw28_core.lib wxbase28.lib wxtiff.lib wxjpeg.lib wxpng.lib wxzlib.lib wxregex.lib wxexpat.lib winmm.lib comctl32.lib rpcrt4.lib wsock32.lib odbc32.lib oleacc.lib"
-				OutputFile="$(OutDir)\wxthings.dll"
-				LinkIncremental="1"
-				SuppressStartupBanner="true"
-				AdditionalLibraryDirectories="&quot;$(WXWIN)\lib\vc_dll&quot;"
-				ProgramDatabaseFile="$(OutDir)\$(ProjectName).pdb"
-				ImportLibrary="..\lib\wxthings.lib"
-				TargetMachine="1"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCManifestTool"
-			/>
-			<Tool
-				Name="VCXDCMakeTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-				SuppressStartupBanner="true"
-				OutputFile="$(OutDir)\wxthings_wxthings.bsc"
-			/>
-			<Tool
-				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-				CommandLine="cd ..&#x0D;&#x0A;REM should be in root directory of wxthings now&#x0D;&#x0A;if NOT exist tarballs\$(ProjectName)_$(PlatformName)\lib_$(PlatformName)\vc_lib mkdir tarballs\$(ProjectName)_$(PlatformName)\lib_$(PlatformName)\vc_lib&#x0D;&#x0A;cd tarballs&#x0D;&#x0A;copy $(OutDir)\*.lib $(ProjectName)_$(PlatformName)\lib_$(PlatformName)\vc_lib&#x0D;&#x0A;copy $(OutDir)\*.pdb $(ProjectName)_$(PlatformName)\lib_$(PlatformName)\vc_lib&#x0D;&#x0A;cd $(ProjectName)_$(PlatformName)&#x0D;&#x0A;if exist include\wxthings goto copyincludes&#x0D;&#x0A;mkdir include\wxthings&#x0D;&#x0A;copy ..\..\wxthings-win32-vc80.txt include\wxthings\wxthings.txt&#x0D;&#x0A;:copyincludes&#x0D;&#x0A;if exist include\wxwidgets\wx\things goto theend&#x0D;&#x0A;mkdir include\wxwidgets\wx\things&#x0D;&#x0A;copy ..\..\include\wx\things\*.h include\wxwidgets\wx\things&#x0D;&#x0A;:theend&#x0D;&#x0A;echo To create tarballs after building both Debug and Release libraries:&#x0D;&#x0A;echo 1. cd $(ProjectDir)..\tarballs\$(ProjectName)_$(PlatformName)&#x0D;&#x0A;echo 2. tar czvf wxthings-2006.04.28-win32-vc80-v2.tgz *&#x0D;&#x0A;"
-			/>
-		</Configuration>
-		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="..\lib\_MSVC_$(PlatformName)_$(ConfigurationName)"
+			OutputDirectory="$(SolutionDir)lib_$(PlatformName)\vc_lib"
 			IntermediateDirectory="_MSVC_$(PlatformName)_$(ConfigurationName)"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
@@ -143,9 +45,9 @@
 				Name="VCCLCompilerTool"
 				AdditionalOptions="/EHsc "
 				Optimization="0"
-				AdditionalIncludeDirectories="..\include;&quot;$(WXWIN)\include&quot;;&quot;$(WXWIN)\lib\vc_lib\mswd&quot;;&quot;$(WXWIN)\include\wxwidgets&quot;;&quot;$(WXWIN)\lib_$(PlatformName)\vc_lib\mswd&quot;"
+				AdditionalIncludeDirectories="..\include;&quot;$(SDL_EXTERN)\include&quot;;&quot;$(SDL_EXTERN)\include\msvc&quot;"
 				PreprocessorDefinitions="WIN32;_LIB;_DEBUG;__WXDEBUG__;__WXMSW__"
-				MinimalRebuild="true"
+				MinimalRebuild="false"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				RuntimeTypeInfo="true"
@@ -155,7 +57,7 @@
 				ProgramDataBaseFileName="$(OutDir)\$(ProjectName)d.pdb"
 				WarningLevel="4"
 				SuppressStartupBanner="true"
-				DebugInformationFormat="3"
+				DebugInformationFormat="1"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -188,12 +90,89 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="cd ..&#x0D;&#x0A;REM should be in root directory of wxthings now&#x0D;&#x0A;if NOT exist tarballs\$(ProjectName)_$(PlatformName)\lib_$(PlatformName)\vc_lib mkdir tarballs\$(ProjectName)_$(PlatformName)\lib_$(PlatformName)\vc_lib&#x0D;&#x0A;cd tarballs&#x0D;&#x0A;copy $(OutDir)\*.lib $(ProjectName)_$(PlatformName)\lib_$(PlatformName)\vc_lib&#x0D;&#x0A;copy $(OutDir)\*.pdb $(ProjectName)_$(PlatformName)\lib_$(PlatformName)\vc_lib&#x0D;&#x0A;cd $(ProjectName)_$(PlatformName)&#x0D;&#x0A;if exist include\wxthings goto copyincludes&#x0D;&#x0A;mkdir include\wxthings&#x0D;&#x0A;copy ..\..\wxthings-win32-vc80.txt include\wxthings\wxthings.txt&#x0D;&#x0A;:copyincludes&#x0D;&#x0A;if exist include\wxwidgets\wx\things goto theend&#x0D;&#x0A;mkdir include\wxwidgets\wx\things&#x0D;&#x0A;copy ..\..\include\wx\things\*.h include\wxwidgets\wx\things&#x0D;&#x0A;:theend&#x0D;&#x0A;echo To create tarballs after building both Debug and Release libraries:&#x0D;&#x0A;echo 1. cd $(ProjectDir)..\tarballs\$(ProjectName)_$(PlatformName)&#x0D;&#x0A;echo 2. tar czvf wxthings-2006.04.28-win32-vc80-v2.tgz *&#x0D;&#x0A;"
+				CommandLine="cd $(SolutionDir)&#x0D;&#x0A;if exist include\wx\things goto theend&#x0D;&#x0A;mkdir include\wx\things&#x0D;&#x0A;echo &quot;Copying file(s) into include\wx\things&quot;&#x0D;&#x0A;copy $(ProjectDir)..\include\wx\things\*.h include\wx\things&#x0D;&#x0A;:theend&#x0D;&#x0A;"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Debug|x64"
+			OutputDirectory="$(SolutionDir)lib_$(PlatformName)\vc_lib"
+			IntermediateDirectory="_MSVC_$(PlatformName)_$(ConfigurationName)"
+			ConfigurationType="4"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="false"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				TargetEnvironment="3"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				AdditionalOptions="/EHsc "
+				Optimization="0"
+				AdditionalIncludeDirectories="..\include;&quot;$(SDL_EXTERN)\include&quot;;&quot;$(SDL_EXTERN)\include\msvc&quot;"
+				PreprocessorDefinitions="WIN64;_LIB;_DEBUG;__WXDEBUG__;__WXMSW__"
+				MinimalRebuild="false"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="3"
+				RuntimeTypeInfo="true"
+				PrecompiledHeaderFile="$(IntDir)\wxthings_wxthings.pch"
+				AssemblerListingLocation="$(IntDir)\"
+				ObjectFile="$(IntDir)\"
+				ProgramDataBaseFileName="$(OutDir)\$(ProjectName)d.pdb"
+				WarningLevel="4"
+				SuppressStartupBanner="true"
+				DebugInformationFormat="1"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				Culture="1033"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLibrarianTool"
+				OutputFile="$(OutDir)\$(ProjectName)d.lib"
+				SuppressStartupBanner="true"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+				SuppressStartupBanner="true"
+				OutputFile="$(OutDir)\wxthings_wxthings.bsc"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="cd $(SolutionDir)&#x0D;&#x0A;if exist include\wx\things goto theend&#x0D;&#x0A;mkdir include\wx\things&#x0D;&#x0A;echo &quot;Copying file(s) into include\wx\things&quot;&#x0D;&#x0A;copy $(ProjectDir)..\include\wx\things\*.h include\wx\things&#x0D;&#x0A;:theend&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\lib\_MSVC_$(PlatformName)_$(ConfigurationName)"
+			OutputDirectory="$(SolutionDir)lib_$(PlatformName)\vc_lib"
 			IntermediateDirectory="_MSVC_$(PlatformName)_$(ConfigurationName)"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
@@ -220,7 +199,7 @@
 				AdditionalOptions="/EHsc "
 				Optimization="2"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..\include;&quot;$(WXWIN)\include&quot;;&quot;$(WXWIN)\lib\vc_lib\msw&quot;;&quot;$(WXWIN)\include\wxwidgets&quot;;&quot;$(WXWIN)\lib_$(PlatformName)\vc_lib\msw&quot;"
+				AdditionalIncludeDirectories="..\include;&quot;$(SDL_EXTERN)\include&quot;;&quot;$(SDL_EXTERN)\include\msvc&quot;"
 				PreprocessorDefinitions="WIN32;_LIB;__WXMSW__"
 				StringPooling="true"
 				RuntimeLibrary="0"
@@ -263,187 +242,12 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="cd ..&#x0D;&#x0A;REM should be in root directory of wxthings now&#x0D;&#x0A;if NOT exist tarballs\$(ProjectName)_$(PlatformName)\lib_$(PlatformName)\vc_lib mkdir tarballs\$(ProjectName)_$(PlatformName)\lib_$(PlatformName)\vc_lib&#x0D;&#x0A;cd tarballs&#x0D;&#x0A;copy $(OutDir)\*.lib $(ProjectName)_$(PlatformName)\lib_$(PlatformName)\vc_lib&#x0D;&#x0A;copy $(OutDir)\*.pdb $(ProjectName)_$(PlatformName)\lib_$(PlatformName)\vc_lib&#x0D;&#x0A;cd $(ProjectName)_$(PlatformName)&#x0D;&#x0A;if exist include\wxthings goto copyincludes&#x0D;&#x0A;mkdir include\wxthings&#x0D;&#x0A;copy ..\..\wxthings-win32-vc80.txt include\wxthings\wxthings.txt&#x0D;&#x0A;:copyincludes&#x0D;&#x0A;if exist include\wxwidgets\wx\things goto theend&#x0D;&#x0A;mkdir include\wxwidgets\wx\things&#x0D;&#x0A;copy ..\..\include\wx\things\*.h include\wxwidgets\wx\things&#x0D;&#x0A;:theend&#x0D;&#x0A;echo To create tarballs after building both Debug and Release libraries:&#x0D;&#x0A;echo 1. cd $(ProjectDir)..\tarballs\$(ProjectName)_$(PlatformName)&#x0D;&#x0A;echo 2. tar czvf wxthings-2006.04.28-win32-vc80-v2.tgz *&#x0D;&#x0A;"
-			/>
-		</Configuration>
-		<Configuration
-			Name="ReleaseDLL|x64"
-			OutputDirectory="..\lib\_MSVC_$(PlatformName)_$(ConfigurationName)"
-			IntermediateDirectory="_MSVC_$(PlatformName)_$(ConfigurationName)"
-			ConfigurationType="2"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
-			UseOfMFC="0"
-			ATLMinimizesCRunTimeLibraryUsage="false"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-				PreprocessorDefinitions="WIN32,_USRDLL,DLL_EXPORTS,WXUSINGDLL,__WXMSW__,WXMAKINGDLL_WXTHINGS"
-				MkTypLibCompatible="true"
-				SuppressStartupBanner="true"
-				TargetEnvironment="3"
-				TypeLibraryName=".\..\lib/wxthings_wxthings.tlb"
-				HeaderFileName=""
-			/>
-			<Tool
-				Name="VCCLCompilerTool"
-				AdditionalOptions="/EHsc "
-				Optimization="2"
-				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..\include;&quot;$(WXWIN)\include&quot;;&quot;$(WXWIN)\lib\vc_dll\msw&quot;;&quot;$(WXWIN)\include\wxwidgets&quot;;&quot;$(WXWIN)\lib_$(PlatformName)\vc_dll\msw&quot;"
-				PreprocessorDefinitions="WIN64;_USRDLL;DLL_EXPORTS;WXUSINGDLL;__WXMSW__;WXMAKINGDLL_WXTHINGS"
-				StringPooling="true"
-				RuntimeLibrary="2"
-				EnableFunctionLevelLinking="true"
-				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile="$(IntDir)\wxthings_wxthings.pch"
-				AssemblerListingLocation="$(IntDir)\"
-				ObjectFile="$(IntDir)\"
-				ProgramDataBaseFileName="$(OutDir)\$(ProjectName)_dll.pdb"
-				SuppressStartupBanner="true"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="WXUSINGDLL,__WXMSW__,WXMAKINGDLL_WXTHINGS"
-				Culture="1033"
-				AdditionalIncludeDirectories="$(WXWIN)\lib\vc_dll\msw;$(WXWIN)\include;..\include"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCLinkerTool"
-				AdditionalDependencies="wxmsw28_core.lib wxbase28.lib wxtiff.lib wxjpeg.lib wxpng.lib wxzlib.lib wxregex.lib wxexpat.lib winmm.lib comctl32.lib rpcrt4.lib wsock32.lib odbc32.lib oleacc.lib"
-				OutputFile="$(OutDir)\wxthings.dll"
-				LinkIncremental="1"
-				SuppressStartupBanner="true"
-				AdditionalLibraryDirectories="&quot;$(WXWIN)\lib\vc_dll&quot;"
-				ProgramDatabaseFile="$(OutDir)\$(ProjectName).pdb"
-				ImportLibrary="..\lib\wxthings.lib"
-				TargetMachine="17"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCManifestTool"
-			/>
-			<Tool
-				Name="VCXDCMakeTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-				SuppressStartupBanner="true"
-				OutputFile="$(OutDir)\wxthings_wxthings.bsc"
-			/>
-			<Tool
-				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-				CommandLine="cd ..&#x0D;&#x0A;REM should be in root directory of wxthings now&#x0D;&#x0A;if NOT exist tarballs\$(ProjectName)_$(PlatformName)\lib_$(PlatformName)\vc_lib mkdir tarballs\$(ProjectName)_$(PlatformName)\lib_$(PlatformName)\vc_lib&#x0D;&#x0A;cd tarballs&#x0D;&#x0A;copy $(OutDir)\*.lib $(ProjectName)_$(PlatformName)\lib_$(PlatformName)\vc_lib&#x0D;&#x0A;copy $(OutDir)\*.pdb $(ProjectName)_$(PlatformName)\lib_$(PlatformName)\vc_lib&#x0D;&#x0A;cd $(ProjectName)_$(PlatformName)&#x0D;&#x0A;if exist include\wxthings goto copyincludes&#x0D;&#x0A;mkdir include\wxthings&#x0D;&#x0A;copy ..\..\wxthings-win32-vc80.txt include\wxthings\wxthings.txt&#x0D;&#x0A;:copyincludes&#x0D;&#x0A;if exist include\wxwidgets\wx\things goto theend&#x0D;&#x0A;mkdir include\wxwidgets\wx\things&#x0D;&#x0A;copy ..\..\include\wx\things\*.h include\wxwidgets\wx\things&#x0D;&#x0A;:theend&#x0D;&#x0A;echo To create tarball:&#x0D;&#x0A;echo 1. cd $(ProjectDir)..\tarballs\$(ProjectName)_$(PlatformName)&#x0D;&#x0A;echo 2. tar czvf wxthings-2006.04.28-win32-vc80-v1.tgz *&#x0D;&#x0A;"
-			/>
-		</Configuration>
-		<Configuration
-			Name="Debug|x64"
-			OutputDirectory="..\lib\_MSVC_$(PlatformName)_$(ConfigurationName)"
-			IntermediateDirectory="_MSVC_$(PlatformName)_$(ConfigurationName)"
-			ConfigurationType="4"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
-			UseOfMFC="0"
-			ATLMinimizesCRunTimeLibraryUsage="false"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-				TargetEnvironment="3"
-			/>
-			<Tool
-				Name="VCCLCompilerTool"
-				AdditionalOptions="/EHsc "
-				Optimization="0"
-				AdditionalIncludeDirectories="..\include;&quot;$(WXWIN)\include&quot;;&quot;$(WXWIN)\lib\vc_lib\mswd&quot;;&quot;$(WXWIN)\include\wxwidgets&quot;;&quot;$(WXWIN)\lib_$(PlatformName)\vc_lib\mswd&quot;"
-				PreprocessorDefinitions="WIN64;_LIB;_DEBUG;__WXDEBUG__;__WXMSW__"
-				MinimalRebuild="true"
-				BasicRuntimeChecks="3"
-				RuntimeLibrary="3"
-				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile="$(IntDir)\wxthings_wxthings.pch"
-				AssemblerListingLocation="$(IntDir)\"
-				ObjectFile="$(IntDir)\"
-				ProgramDataBaseFileName="$(OutDir)\$(ProjectName)d.pdb"
-				WarningLevel="4"
-				SuppressStartupBanner="true"
-				DebugInformationFormat="3"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-				Culture="1033"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCLibrarianTool"
-				OutputFile="$(OutDir)\$(ProjectName)d.lib"
-				SuppressStartupBanner="true"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCXDCMakeTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-				SuppressStartupBanner="true"
-				OutputFile="$(OutDir)\wxthings_wxthings.bsc"
-			/>
-			<Tool
-				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-				CommandLine="cd ..&#x0D;&#x0A;REM should be in root directory of wxthings now&#x0D;&#x0A;if NOT exist tarballs\$(ProjectName)_$(PlatformName)\lib_$(PlatformName)\vc_lib mkdir tarballs\$(ProjectName)_$(PlatformName)\lib_$(PlatformName)\vc_lib&#x0D;&#x0A;cd tarballs&#x0D;&#x0A;copy $(OutDir)\*.lib $(ProjectName)_$(PlatformName)\lib_$(PlatformName)\vc_lib&#x0D;&#x0A;copy $(OutDir)\*.pdb $(ProjectName)_$(PlatformName)\lib_$(PlatformName)\vc_lib&#x0D;&#x0A;cd $(ProjectName)_$(PlatformName)&#x0D;&#x0A;if exist include\wxthings goto copyincludes&#x0D;&#x0A;mkdir include\wxthings&#x0D;&#x0A;copy ..\..\wxthings-win32-vc80.txt include\wxthings\wxthings.txt&#x0D;&#x0A;:copyincludes&#x0D;&#x0A;if exist include\wxwidgets\wx\things goto theend&#x0D;&#x0A;mkdir include\wxwidgets\wx\things&#x0D;&#x0A;copy ..\..\include\wx\things\*.h include\wxwidgets\wx\things&#x0D;&#x0A;:theend&#x0D;&#x0A;echo To create tarball:&#x0D;&#x0A;echo 1. cd $(ProjectDir)..\tarballs\$(ProjectName)_$(PlatformName)&#x0D;&#x0A;echo 2. tar czvf wxthings-2006.04.28-win32-vc80-v1.tgz *&#x0D;&#x0A;"
+				CommandLine="cd $(SolutionDir)&#x0D;&#x0A;if exist include\wx\things goto theend&#x0D;&#x0A;mkdir include\wx\things&#x0D;&#x0A;echo &quot;Copying file(s) into include\wx\things&quot;&#x0D;&#x0A;copy $(ProjectDir)..\include\wx\things\*.h include\wx\things&#x0D;&#x0A;:theend&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
 			Name="Release|x64"
-			OutputDirectory="..\lib\_MSVC_$(PlatformName)_$(ConfigurationName)"
+			OutputDirectory="$(SolutionDir)lib_$(PlatformName)\vc_lib"
 			IntermediateDirectory="_MSVC_$(PlatformName)_$(ConfigurationName)"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
@@ -471,7 +275,7 @@
 				AdditionalOptions="/EHsc "
 				Optimization="2"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..\include;&quot;$(WXWIN)\include&quot;;&quot;$(WXWIN)\lib\vc_lib\msw&quot;;&quot;$(WXWIN)\include\wxwidgets&quot;;&quot;$(WXWIN)\lib_$(PlatformName)\vc_lib\msw&quot;"
+				AdditionalIncludeDirectories="..\include;&quot;$(SDL_EXTERN)\include&quot;;&quot;$(SDL_EXTERN)\include\msvc&quot;"
 				PreprocessorDefinitions="WIN64;_LIB;__WXMSW__"
 				StringPooling="true"
 				RuntimeLibrary="0"
@@ -514,7 +318,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="cd ..&#x0D;&#x0A;REM should be in root directory of wxthings now&#x0D;&#x0A;if NOT exist tarballs\$(ProjectName)_$(PlatformName)\lib_$(PlatformName)\vc_lib mkdir tarballs\$(ProjectName)_$(PlatformName)\lib_$(PlatformName)\vc_lib&#x0D;&#x0A;cd tarballs&#x0D;&#x0A;copy $(OutDir)\*.lib $(ProjectName)_$(PlatformName)\lib_$(PlatformName)\vc_lib&#x0D;&#x0A;copy $(OutDir)\*.pdb $(ProjectName)_$(PlatformName)\lib_$(PlatformName)\vc_lib&#x0D;&#x0A;cd $(ProjectName)_$(PlatformName)&#x0D;&#x0A;if exist include\wxthings goto copyincludes&#x0D;&#x0A;mkdir include\wxthings&#x0D;&#x0A;copy ..\..\wxthings-win32-vc80.txt include\wxthings\wxthings.txt&#x0D;&#x0A;:copyincludes&#x0D;&#x0A;if exist include\wxwidgets\wx\things goto theend&#x0D;&#x0A;mkdir include\wxwidgets\wx\things&#x0D;&#x0A;copy ..\..\include\wx\things\*.h include\wxwidgets\wx\things&#x0D;&#x0A;:theend&#x0D;&#x0A;echo To create tarball:&#x0D;&#x0A;echo 1. cd $(ProjectDir)..\tarballs\$(ProjectName)_$(PlatformName)&#x0D;&#x0A;echo 2. tar czvf wxthings-2006.04.28-win32-vc80-v1.tgz *&#x0D;&#x0A;"
+				CommandLine="cd $(SolutionDir)&#x0D;&#x0A;if exist include\wx\things goto theend&#x0D;&#x0A;mkdir include\wx\things&#x0D;&#x0A;echo &quot;Copying file(s) into include\wx\things&quot;&#x0D;&#x0A;copy $(ProjectDir)..\include\wx\things\*.h include\wx\things&#x0D;&#x0A;:theend&#x0D;&#x0A;"
 			/>
 		</Configuration>
 	</Configurations>
@@ -528,15 +332,6 @@
 				RelativePath="..\src\block.cpp"
 				>
 				<FileConfiguration
-					Name="ReleaseDLL|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
 					Name="Debug|Win32"
 					>
 					<Tool
@@ -546,25 +341,16 @@
 					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="ReleaseDLL|x64"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
 					Name="Debug|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -586,15 +372,6 @@
 				RelativePath="..\src\bmpcombo.cpp"
 				>
 				<FileConfiguration
-					Name="ReleaseDLL|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
 					Name="Debug|Win32"
 					>
 					<Tool
@@ -604,25 +381,16 @@
 					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="ReleaseDLL|x64"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
 					Name="Debug|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -644,15 +412,6 @@
 				RelativePath="..\src\dropdown.cpp"
 				>
 				<FileConfiguration
-					Name="ReleaseDLL|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
 					Name="Debug|Win32"
 					>
 					<Tool
@@ -662,25 +421,16 @@
 					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="ReleaseDLL|x64"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
 					Name="Debug|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -702,15 +452,6 @@
 				RelativePath="..\src\filebrws.cpp"
 				>
 				<FileConfiguration
-					Name="ReleaseDLL|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
 					Name="Debug|Win32"
 					>
 					<Tool
@@ -720,25 +461,16 @@
 					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="ReleaseDLL|x64"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
 					Name="Debug|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -760,15 +492,6 @@
 				RelativePath="..\src\genergdi.cpp"
 				>
 				<FileConfiguration
-					Name="ReleaseDLL|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
 					Name="Debug|Win32"
 					>
 					<Tool
@@ -778,25 +501,16 @@
 					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="ReleaseDLL|x64"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
 					Name="Debug|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -818,15 +532,6 @@
 				RelativePath="..\src\geometry.cpp"
 				>
 				<FileConfiguration
-					Name="ReleaseDLL|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
 					Name="Debug|Win32"
 					>
 					<Tool
@@ -836,25 +541,16 @@
 					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="ReleaseDLL|x64"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
 					Name="Debug|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -876,15 +572,6 @@
 				RelativePath="..\src\menubtn.cpp"
 				>
 				<FileConfiguration
-					Name="ReleaseDLL|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
 					Name="Debug|Win32"
 					>
 					<Tool
@@ -894,25 +581,16 @@
 					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="ReleaseDLL|x64"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
 					Name="Debug|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -934,15 +612,6 @@
 				RelativePath="..\src\optvalue.cpp"
 				>
 				<FileConfiguration
-					Name="ReleaseDLL|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
 					Name="Debug|Win32"
 					>
 					<Tool
@@ -952,25 +621,16 @@
 					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="ReleaseDLL|x64"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
 					Name="Debug|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -992,15 +652,6 @@
 				RelativePath="..\src\range.cpp"
 				>
 				<FileConfiguration
-					Name="ReleaseDLL|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
 					Name="Debug|Win32"
 					>
 					<Tool
@@ -1010,25 +661,16 @@
 					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="ReleaseDLL|x64"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
 					Name="Debug|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -1050,15 +692,6 @@
 				RelativePath="..\src\spinctld.cpp"
 				>
 				<FileConfiguration
-					Name="ReleaseDLL|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
 					Name="Debug|Win32"
 					>
 					<Tool
@@ -1068,25 +701,16 @@
 					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="ReleaseDLL|x64"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
 					Name="Debug|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -1108,15 +732,6 @@
 				RelativePath="..\src\toggle.cpp"
 				>
 				<FileConfiguration
-					Name="ReleaseDLL|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
 					Name="Debug|Win32"
 					>
 					<Tool
@@ -1126,25 +741,16 @@
 					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="ReleaseDLL|x64"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
 					Name="Debug|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
