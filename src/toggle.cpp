@@ -60,6 +60,7 @@ void wxCustomButton::Init()
     m_timer = NULL;
     m_eventType = 0;
     m_button_style = wxCUSTBUT_TOGGLE|wxCUSTBUT_BOTTOM;
+    m_fit = false;
 }
 
 bool wxCustomButton::Create(wxWindow* parent, wxWindowID id,
@@ -124,6 +125,7 @@ bool wxCustomButton::SetButtonStyle(long style)
 void wxCustomButton::SetLabel( const wxString &label )
 {
     wxControl::SetLabel(label);
+    if (m_fit) SetMinSize(DoGetBestSize());
     CalcLayout(true);
 }
 
@@ -279,6 +281,15 @@ void wxCustomButton::SendEvent()
     {
         wxCommandEvent eventOut(wxEVT_COMMAND_TOGGLEBUTTON_CLICKED, GetId());
         eventOut.SetInt(m_down%2 ? 1 : 0);
+        eventOut.SetExtraLong(m_eventType);
+        eventOut.SetEventObject(this);
+        GetEventHandler()->ProcessEvent(eventOut);
+    }
+    else if (((m_button_style & wxCUSTBUT_BUTTON) && (m_eventType == wxEVT_RIGHT_UP)) ||
+             ((m_button_style & wxCUSTBUT_TOGGLE) && (m_eventType == wxEVT_RIGHT_UP)))
+    {
+        wxContextMenuEvent eventOut(wxEVT_CONTEXT_MENU, GetId());
+        eventOut.SetInt(0);
         eventOut.SetExtraLong(m_eventType);
         eventOut.SetEventObject(this);
         GetEventHandler()->ProcessEvent(eventOut);
@@ -462,18 +473,21 @@ void wxCustomButton::SetMargins(const wxSize &margin, bool fit)
 {
     m_labelMargin = margin;
     m_bitmapMargin = margin;
+    m_fit = fit;
     CalcLayout(true);
     if (fit) SetSize(DoGetBestSize());
 }
 void wxCustomButton::SetLabelMargin(const wxSize &margin, bool fit)
 {
     m_labelMargin = margin;
+    m_fit = fit;
     CalcLayout(true);
     if (fit) SetSize(DoGetBestSize());
 }
 void wxCustomButton::SetBitmapMargin(const wxSize &margin, bool fit)
 {
     m_bitmapMargin = margin;
+    m_fit = fit;
     CalcLayout(true);
     if (fit) SetSize(DoGetBestSize());
 }

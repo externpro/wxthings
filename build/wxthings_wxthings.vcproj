@@ -321,6 +321,157 @@
 				CommandLine="cd $(SolutionDir)&#x0D;&#x0A;if exist include\wx\things goto theend&#x0D;&#x0A;mkdir include\wx\things&#x0D;&#x0A;echo &quot;Copying file(s) into include\wx\things&quot;&#x0D;&#x0A;copy $(ProjectDir)..\include\wx\things\*.h include\wx\things&#x0D;&#x0A;:theend&#x0D;&#x0A;"
 			/>
 		</Configuration>
+		<Configuration
+			Name="ReleaseDLL|Win32"
+			OutputDirectory="$(SolutionDir)lib_$(PlatformName)\vc_dll"
+			IntermediateDirectory="_MSVC_$(PlatformName)_$(ConfigurationName)"
+			ConfigurationType="4"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="false"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				AdditionalOptions="/EHsc "
+				Optimization="2"
+				InlineFunctionExpansion="1"
+				AdditionalIncludeDirectories="..\include;&quot;$(SDL_EXTERN)\include&quot;;&quot;$(SDL_EXTERN)\include\msvc&quot;"
+				PreprocessorDefinitions="WIN32;_LIB;__WXMSW__;RELEASEDLL"
+				StringPooling="true"
+				RuntimeLibrary="2"
+				EnableFunctionLevelLinking="true"
+				RuntimeTypeInfo="true"
+				PrecompiledHeaderFile="$(IntDir)\wxthings_wxthings.pch"
+				AssemblerListingLocation="$(IntDir)\"
+				ObjectFile="$(IntDir)\"
+				ProgramDataBaseFileName="$(OutDir)\$(ProjectName).pdb"
+				SuppressStartupBanner="true"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				Culture="1033"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLibrarianTool"
+				OutputFile="$(OutDir)\$(ProjectName).lib"
+				SuppressStartupBanner="true"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+				SuppressStartupBanner="true"
+				OutputFile="$(OutDir)\wxthings_wxthings.bsc"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="cd $(SolutionDir)&#x0D;&#x0A;if exist include\wx\things goto theend&#x0D;&#x0A;mkdir include\wx\things&#x0D;&#x0A;echo &quot;Copying file(s) into include\wx\things&quot;&#x0D;&#x0A;copy $(ProjectDir)..\include\wx\things\*.h include\wx\things&#x0D;&#x0A;:theend&#x0D;&#x0A;"
+			/>
+		</Configuration>
+		<Configuration
+			Name="ReleaseDLL|x64"
+			OutputDirectory="$(SolutionDir)lib_$(PlatformName)\vc_dll"
+			IntermediateDirectory="_MSVC_$(PlatformName)_$(ConfigurationName)"
+			ConfigurationType="4"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="false"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				TargetEnvironment="3"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				AdditionalOptions="/EHsc "
+				Optimization="2"
+				InlineFunctionExpansion="1"
+				AdditionalIncludeDirectories="..\include;&quot;$(SDL_EXTERN)\include&quot;;&quot;$(SDL_EXTERN)\include\msvc&quot;"
+				PreprocessorDefinitions="WIN64;_LIB;__WXMSW__;RELEASEDLL"
+				StringPooling="true"
+				RuntimeLibrary="2"
+				EnableFunctionLevelLinking="true"
+				RuntimeTypeInfo="true"
+				PrecompiledHeaderFile="$(IntDir)\wxthings_wxthings.pch"
+				AssemblerListingLocation="$(IntDir)\"
+				ObjectFile="$(IntDir)\"
+				ProgramDataBaseFileName="$(OutDir)\$(ProjectName).pdb"
+				SuppressStartupBanner="true"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				Culture="1033"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLibrarianTool"
+				OutputFile="$(OutDir)\$(ProjectName).lib"
+				SuppressStartupBanner="true"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+				SuppressStartupBanner="true"
+				OutputFile="$(OutDir)\wxthings_wxthings.bsc"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="cd $(SolutionDir)&#x0D;&#x0A;if exist include\wx\things goto theend&#x0D;&#x0A;mkdir include\wx\things&#x0D;&#x0A;echo &quot;Copying file(s) into include\wx\things&quot;&#x0D;&#x0A;copy $(ProjectDir)..\include\wx\things\*.h include\wx\things&#x0D;&#x0A;:theend&#x0D;&#x0A;"
+			/>
+		</Configuration>
 	</Configurations>
 	<References>
 	</References>
@@ -360,6 +511,24 @@
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="ReleaseDLL|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="ReleaseDLL|x64"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -407,6 +576,24 @@
 						PreprocessorDefinitions=""
 					/>
 				</FileConfiguration>
+				<FileConfiguration
+					Name="ReleaseDLL|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="ReleaseDLL|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath="..\src\dropdown.cpp"
@@ -440,6 +627,24 @@
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="ReleaseDLL|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="ReleaseDLL|x64"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -487,6 +692,24 @@
 						PreprocessorDefinitions=""
 					/>
 				</FileConfiguration>
+				<FileConfiguration
+					Name="ReleaseDLL|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="ReleaseDLL|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath="..\src\genergdi.cpp"
@@ -520,6 +743,24 @@
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="ReleaseDLL|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="ReleaseDLL|x64"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -567,6 +808,24 @@
 						PreprocessorDefinitions=""
 					/>
 				</FileConfiguration>
+				<FileConfiguration
+					Name="ReleaseDLL|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="ReleaseDLL|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath="..\src\menubtn.cpp"
@@ -600,6 +859,24 @@
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="ReleaseDLL|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="ReleaseDLL|x64"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -647,6 +924,24 @@
 						PreprocessorDefinitions=""
 					/>
 				</FileConfiguration>
+				<FileConfiguration
+					Name="ReleaseDLL|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="ReleaseDLL|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath="..\src\range.cpp"
@@ -680,6 +975,24 @@
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="ReleaseDLL|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="ReleaseDLL|x64"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -727,6 +1040,24 @@
 						PreprocessorDefinitions=""
 					/>
 				</FileConfiguration>
+				<FileConfiguration
+					Name="ReleaseDLL|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="ReleaseDLL|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath="..\src\toggle.cpp"
@@ -760,6 +1091,24 @@
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="ReleaseDLL|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						PreprocessorDefinitions=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="ReleaseDLL|x64"
 					>
 					<Tool
 						Name="VCCLCompilerTool"

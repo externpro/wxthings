@@ -227,6 +227,7 @@ protected:
     int m_down;         // toggle state if m_down%2 then depressed
     bool m_focused;     // mouse in window
     long m_button_style;
+    bool m_fit;         // resize the button to fit
 
     // the bitmaps for various states
     wxBitmap m_bmpLabel,
