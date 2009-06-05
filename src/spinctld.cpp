@@ -26,7 +26,7 @@
 #include <math.h>
 
 //These 3 lines added by SC@SDL on 10/5/07 for Solaris compile:
-#if defined(__GNUG__) || defined(__GNUWIN32__) || defined(__SUNCC__)
+#if defined(__sun__)
 #include <ieeefp.h>
 #endif
 
