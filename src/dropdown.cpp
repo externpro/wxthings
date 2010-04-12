@@ -183,7 +183,11 @@ void DropDownPopup::OnMouse( wxMouseEvent& event )
 
 void DropDownPopup::OnKeyDown( wxKeyEvent &event )
 {
+#if wxCHECK_VERSION(2,9,0)
+    if (GetChild() && GetChild()->ProcessWindowEvent(event))
+#else
     if (GetChild() && GetChild()->ProcessEvent(event))
+#endif
         event.Skip(false);
     else
         event.Skip(true);

@@ -31,7 +31,11 @@ class WXDLLEXPORT wxListEvent;
 class WXDLLEXPORT wxToolBar;
 class WXDLLEXPORT wxBitmapButton;
 class WXDLLEXPORT wxConfigBase;
+#if wxCHECK_VERSION(2,9,0)
+class WXDLLEXPORT wxFileListCtrl;
+#else
 class WXDLLEXPORT wxFileCtrl;
+#endif
 class WXDLLEXPORT wxFileName;
 
 class WXDLLIMPEXP_THINGS wxFileBrowser;
@@ -285,7 +289,11 @@ protected :
     void OnTreeItemActivation(wxTreeEvent &event);
     void OnTreeRightClick(wxTreeEvent& event);
 
+#if wxCHECK_VERSION(2,9,0)
+    // wxFileListCtrl events
+#else
     // wxFileCtrl events - a wxListCtrl
+#endif
     void OnListColClick(wxListEvent &event);
     void OnListItemActivated(wxListEvent &event);
     void OnListItemSelected(wxListEvent &event);
@@ -322,7 +330,11 @@ protected :
 
     wxSplitterWindow *m_splitterWin;
     wxGenericDirCtrl *m_dirCtrl;
+#if wxCHECK_VERSION(2,9,0)
+    wxFileListCtrl   *m_fileCtrl;
+#else
     wxFileCtrl       *m_fileCtrl;
+#endif
 
     wxMenu           *m_listMenu;   // popup menu in listctrl
     wxMenu           *m_treeMenu;   // popup menu in treectrl

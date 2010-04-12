@@ -545,7 +545,7 @@ void OpenWithDialog::OnButton(wxCommandEvent& event)
                                                 wxFileNameFromPath(startPath),
                                                 wxEmptyString,
                                                 filters,
-                                                wxOPEN|wxFILE_MUST_EXIST );
+                                                wxFD_OPEN|wxFD_FILE_MUST_EXIST );
             if (!fileName.IsEmpty())
             {
                 fileName += wxT(" \"") + m_fileData.GetFilePath() + wxT("\"");
@@ -990,9 +990,15 @@ bool wxFileBrowser::Create( wxWindow *parent, const wxWindowID id,
 
     m_dirCtrl->Show(true);
 
+#if wxCHECK_VERSION(2,9,0)
+    m_fileCtrl = new wxFileListCtrl(m_splitterWin, wxID_ANY, GetWild(), false,
+                                    wxDefaultPosition, wxSize(50,50),
+                                    wxNO_BORDER|wxLC_SINGLE_SEL|FBStyleToLCStyle(style));
+#else
     m_fileCtrl = new wxFileCtrl(m_splitterWin, wxID_ANY, GetWild(), false,
                                 wxDefaultPosition, wxSize(50,50),
                                 wxNO_BORDER|wxLC_SINGLE_SEL|FBStyleToLCStyle(style));
+#endif
     m_fileCtrl->Show(true);
     m_fileCtrl->GoToDir(m_path);
 

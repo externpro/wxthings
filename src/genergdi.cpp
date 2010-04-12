@@ -264,8 +264,13 @@ IMPLEMENT_DYNAMIC_CLASS(wxGenericPen, wxObject)
 class wxGenericPenRefData : public wxObjectRefData
 {
 public:
+#if wxCHECK_VERSION(2,9,0)
+    wxGenericPenRefData(int width = 1, int style = wxSOLID,
+                        wxPenCap cap = wxCAP_ROUND, wxPenJoin join = wxJOIN_ROUND)
+#else
     wxGenericPenRefData(int width = 1, int style = wxSOLID,
                         int cap = wxCAP_ROUND, int join = wxJOIN_ROUND)
+#endif
           : wxObjectRefData(), m_width(width), m_style(style),
                                m_cap(cap), m_join(join),
                                m_dash_count(0), m_dash(NULL) {}
@@ -287,8 +292,13 @@ public:
     wxGenericColour m_colour;
     int m_width;
     int m_style;
+#if wxCHECK_VERSION(2,9,0)
+    wxPenCap m_cap;
+    wxPenJoin m_join;
+#else
     int m_cap;
     int m_join;
+#endif
 
     int m_dash_count; // don't arbitrarily adjust these!
     wxDash *m_dash;
@@ -317,14 +327,22 @@ void wxGenericPen::Create( const wxPen &pen )
     Set(pen);
 }
 void wxGenericPen::Create(const wxGenericColour &colour, int width, int style,
+#if wxCHECK_VERSION(2,9,0)
+                          wxPenCap cap, wxPenJoin join )
+#else
                           int cap, int join )
+#endif
 {
     UnRef();
     m_refData = new wxGenericPenRefData(width, style, cap, join);
     M_GPENDATA->m_colour = colour;
 }
 void wxGenericPen::Create(const wxColour &colour, int width, int style,
+#if wxCHECK_VERSION(2,9,0)
+                          wxPenCap cap, wxPenJoin join)
+#else
                           int cap, int join )
+#endif
 {
     Create(wxGenericColour(colour), width, style, cap, join);
 }
@@ -370,6 +388,18 @@ void wxGenericPen::SetColour( int red, int green, int blue, int alpha )
 {
     SetColour(wxGenericColour(red, green, blue, alpha));
 }
+#if wxCHECK_VERSION(2,9,0)
+void wxGenericPen::SetCap( wxPenCap capStyle )
+{
+    wxCHECK_RET(Ok(), wxT("Invalid generic pen"));
+    M_GPENDATA->m_cap = capStyle;
+}
+void wxGenericPen::SetJoin( wxPenJoin joinStyle )
+{
+    wxCHECK_RET(Ok(), wxT("Invalid generic pen"));
+    M_GPENDATA->m_join = joinStyle;
+}
+#else
 void wxGenericPen::SetCap( int capStyle )
 {
     wxCHECK_RET(Ok(), wxT("Invalid generic pen"));
@@ -380,6 +410,7 @@ void wxGenericPen::SetJoin( int joinStyle )
     wxCHECK_RET(Ok(), wxT("Invalid generic pen"));
     M_GPENDATA->m_join = joinStyle;
 }
+#endif
 void wxGenericPen::SetStyle( int style )
 {
     wxCHECK_RET(Ok(), wxT("Invalid generic pen"));
@@ -447,6 +478,18 @@ int wxGenericPen::GetStyle() const
     wxCHECK_MSG(Ok(), wxSOLID, wxT("Invalid generic pen"));
     return M_GPENDATA->m_style;
 }
+#if wxCHECK_VERSION(2,9,0)
+wxPenCap wxGenericPen::GetCap() const
+{
+    wxCHECK_MSG(Ok(), wxCAP_ROUND, wxT("Invalid generic pen"));
+    return M_GPENDATA->m_cap;
+}
+wxPenJoin wxGenericPen::GetJoin() const
+{
+    wxCHECK_MSG(Ok(), wxJOIN_ROUND, wxT("Invalid generic pen"));
+    return M_GPENDATA->m_join;
+}
+#else
 int wxGenericPen::GetCap() const
 {
     wxCHECK_MSG(Ok(), wxCAP_ROUND, wxT("Invalid generic pen"));
@@ -457,6 +500,7 @@ int wxGenericPen::GetJoin() const
     wxCHECK_MSG(Ok(), wxJOIN_ROUND, wxT("Invalid generic pen"));
     return M_GPENDATA->m_join;
 }
+#endif
 int wxGenericPen::GetDashes(wxDash **ptr) const
 {
     wxCHECK_MSG(Ok(), 0, wxT("Invalid generic pen"));
