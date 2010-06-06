@@ -16,8 +16,8 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="..\bin\_MSVC_$(PlatformName)_$(ConfigurationName)"
-			IntermediateDirectory="_MSVC_$(PlatformName)_$(ConfigurationName)"
+			OutputDirectory="_vc8_$(PlatformName)_$(ConfigurationName)"
+			IntermediateDirectory="_vc8_$(PlatformName)_$(ConfigurationName)"
 			ConfigurationType="1"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -48,7 +48,7 @@
 				Name="VCCLCompilerTool"
 				AdditionalOptions="/EHsc "
 				Optimization="0"
-				AdditionalIncludeDirectories="..\include;&quot;$(WXWIN)\include&quot;;&quot;$(WXWIN)\lib\vc_lib\mswd&quot;;&quot;$(WXWIN)\include\wxwidgets&quot;;&quot;$(WXWIN)\lib_$(PlatformName)\vc_lib\mswd&quot;"
+				AdditionalIncludeDirectories="..\include;&quot;$(ProjectDir)..\..&quot;;&quot;$(ProjectDir)..\..\..\include&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;__WXDEBUG__;__WXMSW__;_WINDOWS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -68,19 +68,17 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="_DEBUG,__WXDEBUG__,__WXMSW__,_WINDOWS"
-				Culture="1033"
-				AdditionalIncludeDirectories="$(WXWIN)\lib\vc_lib\mswd;$(WXWIN)\include;..\include;..\samples\things"
+				AdditionalIncludeDirectories=""
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="wxthingsd.lib wxmsw28d_core.lib wxbase28d.lib wxtiffd.lib wxjpegd.lib wxpngd.lib wxzlibd.lib wxregexd.lib wxexpatd.lib winmm.lib comctl32.lib rpcrt4.lib wsock32.lib odbc32.lib oleacc.lib"
 				OutputFile="$(OutDir)\$(ProjectName).exe"
 				LinkIncremental="2"
 				SuppressStartupBanner="true"
-				AdditionalLibraryDirectories="&quot;..\lib\_MSVC_$(PlatformName)_$(ConfigurationName)&quot;;&quot;$(WXWIN)\lib\vc_lib&quot;;&quot;$(WXWIN)\lib_$(PlatformName)\vc_lib&quot;"
+				AdditionalLibraryDirectories="$(ProjectDir)../../../lib/vc_lib"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)\$(ProjectName).pdb"
 				SubSystem="2"
@@ -116,8 +114,8 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\bin\_MSVC_$(PlatformName)_$(ConfigurationName)"
-			IntermediateDirectory="_MSVC_$(PlatformName)_$(ConfigurationName)"
+			OutputDirectory="_vc8_$(PlatformName)_$(ConfigurationName)"
+			IntermediateDirectory="_vc8_$(PlatformName)_$(ConfigurationName)"
 			ConfigurationType="1"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -149,7 +147,7 @@
 				AdditionalOptions="/EHsc "
 				Optimization="2"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..\include;&quot;$(WXWIN)\include&quot;;&quot;$(WXWIN)\lib\vc_lib\msw&quot;;&quot;$(WXWIN)\include\wxwidgets&quot;;&quot;$(WXWIN)\lib_$(PlatformName)\vc_lib\msw&quot;"
+				AdditionalIncludeDirectories="..\include;&quot;$(ProjectDir)..\..&quot;;&quot;$(ProjectDir)..\..\..\include&quot;"
 				PreprocessorDefinitions="WIN32;__WXMSW__;_WINDOWS"
 				StringPooling="true"
 				RuntimeLibrary="0"
@@ -167,19 +165,17 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="__WXMSW__,_WINDOWS"
-				Culture="1033"
-				AdditionalIncludeDirectories="$(WXWIN)\lib\vc_lib\msw;$(WXWIN)\include;..\include;..\samples\things"
+				AdditionalIncludeDirectories=""
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="wxthings.lib wxmsw28_core.lib wxbase28.lib wxtiff.lib wxjpeg.lib wxpng.lib wxzlib.lib wxregex.lib wxexpat.lib winmm.lib comctl32.lib rpcrt4.lib wsock32.lib odbc32.lib oleacc.lib"
 				OutputFile="$(OutDir)\$(ProjectName).exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
-				AdditionalLibraryDirectories="&quot;..\lib\_MSVC_$(PlatformName)_$(ConfigurationName)&quot;;&quot;$(WXWIN)\lib\vc_lib&quot;;&quot;$(WXWIN)\lib_$(PlatformName)\vc_lib&quot;"
+				AdditionalLibraryDirectories="$(ProjectDir)../../../lib/vc_lib"
 				ProgramDatabaseFile="$(OutDir)\$(ProjectName).pdb"
 				SubSystem="2"
 				TargetMachine="1"
@@ -213,8 +209,8 @@
 		</Configuration>
 		<Configuration
 			Name="ReleaseDLL|Win32"
-			OutputDirectory="..\bin\_MSVC_$(PlatformName)_$(ConfigurationName)"
-			IntermediateDirectory="_MSVC_$(PlatformName)_$(ConfigurationName)"
+			OutputDirectory="_vc8_$(PlatformName)_$(ConfigurationName)"
+			IntermediateDirectory="_vc8_$(PlatformName)_$(ConfigurationName)"
 			ConfigurationType="1"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -246,7 +242,7 @@
 				AdditionalOptions="/EHsc "
 				Optimization="2"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..\include;&quot;$(WXWIN)\include&quot;;&quot;$(WXWIN)\lib\vc_dll\msw&quot;;&quot;$(WXWIN)\include\wxwidgets&quot;;&quot;$(WXWIN)\lib_$(PlatformName)\vc_dll\msw&quot;"
+				AdditionalIncludeDirectories="..\include;&quot;$(ProjectDir)..\..&quot;;&quot;$(ProjectDir)..\..\..\include&quot;"
 				PreprocessorDefinitions="WIN32;WXUSINGDLL;__WXMSW__;_WINDOWS"
 				StringPooling="true"
 				RuntimeLibrary="2"
@@ -264,19 +260,17 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="WXUSINGDLL,__WXMSW__,_WINDOWS"
-				Culture="1033"
-				AdditionalIncludeDirectories="$(WXWIN)\lib\vc_dll\msw;$(WXWIN)\include;..\include;..\samples\things"
+				AdditionalIncludeDirectories=""
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="wxthings.lib wxmsw28_core.lib wxbase28.lib wxtiff.lib wxjpeg.lib wxpng.lib wxzlib.lib wxregex.lib wxexpat.lib winmm.lib comctl32.lib rpcrt4.lib wsock32.lib odbc32.lib oleacc.lib"
 				OutputFile="$(OutDir)\$(ProjectName).exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
-				AdditionalLibraryDirectories="&quot;..\lib\_MSVC_$(PlatformName)_$(ConfigurationName)&quot;;&quot;$(WXWIN)\lib\vc_dll&quot;;&quot;$(WXWIN)\lib_$(PlatformName)\vc_dll&quot;"
+				AdditionalLibraryDirectories="$(ProjectDir)../../../lib/vc_lib"
 				ProgramDatabaseFile="$(OutDir)\$(ProjectName).pdb"
 				SubSystem="2"
 				TargetMachine="1"
