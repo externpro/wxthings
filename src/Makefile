@@ -39,10 +39,7 @@ WXSTEDIT_DIR = ../../wxstedit
 # ----------------------------------------------------------------------------
 
 WXTHINGS_LIBNAME = $(WXBASENAME)_wxthings-$(WXRELEASE)
-
-# This line changed by SC@SDL on 10/5/07 for Solaris build:
-#WXTHINGS_LIBDIR = $(WXLIBDIR)
-WXTHINGS_LIBDIR = lib
+WXTHINGS_LIBDIR = $(WXLIBDIR)
 
 LIBVERSION_CURRENT=1
 LIBVERSION_REVISION=0
