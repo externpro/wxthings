@@ -1,16 +1,7 @@
 set(lib_name things)
-set(wx_dir ${CMAKE_CURRENT_SOURCE_DIR}/../../..)
 #######################################
 # include directories
-include_directories( 
-  ${wx_dir}/include
-  ../include
-)
-if(MSVC)
-  include_directories(
-    ${wx_dir}/wxx # to find the MSVC-specific wx/setup.h
-  )
-endif()
+include_directories(../include)
 #######################################
 # library sources
 ########################
@@ -27,7 +18,7 @@ set(things_srcs
   ../src/range.cpp
   ../src/spinctld.cpp
   ../src/toggle.cpp
-)
+  )
 list(APPEND ${lib_name}_libsrcs ${things_srcs})
 ########################
 # headers
@@ -45,10 +36,13 @@ set(things_hdrs
   ../include/wx/things/spinctld.h
   ../include/wx/things/thingdef.h
   ../include/wx/things/toggle.h
-)
+  )
 list(APPEND ${lib_name}_libsrcs ${things_hdrs})
 #######################################
 # library
 add_library(${lib_name} STATIC ${${lib_name}_libsrcs})
 set_target_properties(${lib_name} PROPERTIES OUTPUT_NAME ${wxbasename}_${lib_name}-${wxversion})
-
+#######################################
+# install
+install(TARGETS ${lib_name} DESTINATION lib${NUMBITS})
+install(FILES ${things_hdrs} DESTINATION include/wx/things)
