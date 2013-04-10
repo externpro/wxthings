@@ -353,7 +353,12 @@ int CopyDir(const wxString& fromDir, const wxString& toDir)
     // first make sure that the source dir exists
     if(!wxDir::Exists(from))
     {
+#if wxCHECK_VERSION(2,9,0)
         wxLogError(from + wxT(" does not exist. Can not copy directory."));
+#else
+        // https://groups.google.com/forum/?fromgroups=#!topic/wx-users/sV-_jhhQ3jE
+        wxLogError(from + wxT(" does not exist. Can not copy directory."), NULL);
+#endif
         return 0;
     }
 

@@ -26,6 +26,7 @@ arrows.
 #ifndef _WX_BMPCOMBO_H_
 #define _WX_BMPCOMBO_H_
 
+#ifndef __WXMAC__
 #if defined(__GNUG__) && !defined(NO_GCC_PRAGMA)
     #pragma interface "bmpcombo.h"
 #endif
@@ -220,4 +221,5 @@ private:
     DECLARE_EVENT_TABLE()
 };
 
+#endif // NOT __WXMAC__
 #endif  // _WX_BMPCOMBO_H_

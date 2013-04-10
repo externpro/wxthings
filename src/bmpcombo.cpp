@@ -9,6 +9,7 @@
 // Licence:     wxWidgets licence
 /////////////////////////////////////////////////////////////////////////////
 
+#ifndef __WXMAC__
 #if defined(__GNUG__) && !defined(NO_GCC_PRAGMA)
     #pragma implementation "bmpcombo.h"
 #endif
@@ -577,3 +578,5 @@ bool wxBitmapComboBox::SetBackgroundColour(const wxColour &colour)
     }
     return DropDownBase::SetBackgroundColour(colour);
 }
+
+#endif // NOT __WXMAC__

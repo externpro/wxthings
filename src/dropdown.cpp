@@ -9,6 +9,7 @@
 // Licence:     wxWidgets licence
 /////////////////////////////////////////////////////////////////////////////
 
+#ifndef __WXMAC__
 #if defined(__GNUG__) && !defined(NO_GCC_PRAGMA)
     #pragma implementation "dropdown.h"
 #endif
@@ -407,3 +408,4 @@ void DropDownBase::OnDropButton( wxCommandEvent &WXUNUSED(event))
     else
         ShowPopup();
 }
+#endif // NOT __WXMAC__

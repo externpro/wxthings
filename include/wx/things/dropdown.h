@@ -33,6 +33,7 @@ DoShowPopup() - this is called from ShowPopup after creating the m_popupWin.
 #ifndef _WX_DROPDOWNBASE_H_
 #define _WX_DROPDOWNBASE_H_
 
+#ifndef __WXMAC__
 #if defined(__GNUG__) && !defined(NO_GCC_PRAGMA)
     #pragma interface "dropdown.h"
 #endif
@@ -164,4 +165,5 @@ private:
     DECLARE_EVENT_TABLE()
 };
 
+#endif // NOT __WXMAC__
 #endif  // _WX_DROPDOWNBASE_H_
