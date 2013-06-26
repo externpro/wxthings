@@ -18,7 +18,11 @@
 #include "wx/dirctrl.h"
 #include "wx/filedlg.h"
 #include "wx/textdlg.h"
+#if wxCHECK_VERSION(2,9,0)
+#include "wx/generic/filectrlg.h"
+#else
 #include "wx/generic/filedlgg.h"
+#endif
 #include "wx/things/thingdef.h"
 
 class WXDLLEXPORT wxCheckBox;
