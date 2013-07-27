@@ -45,4 +45,4 @@ set_wxxtarget_properties(${lib_name})
 #######################################
 # install
 install(TARGETS ${lib_name} DESTINATION lib${NUMBITS})
-install(FILES ${things_hdrs} DESTINATION include/wx/things)
+install(FILES ${things_hdrs} DESTINATION include/${wxinc}/wx/things)
