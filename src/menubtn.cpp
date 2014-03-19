@@ -247,7 +247,15 @@ void wxMenuButton::OnButton( wxCommandEvent &event)
         bool check_next = false;
 
         // find the next available radio item to check
+#if wxUSE_STD_CONTAINERS
+        // as described in wxWidgets "Container Classes" documentation
+        // http://docs.wxwidgets.org/3.0/overview_container.html#overview_container_std
+        // wxList::compatibility_iterator must be used instead of wxList::Node* when
+        // iterating over the list contents
+        for (wxMenuItemList::compatibility_iterator node = items.GetFirst(); node; node = node->GetNext())
+#else
         for (wxMenuItemList::Node *node = items.GetFirst(); node; node = node->GetNext())
+#endif
         {
             wxMenuItem *mi = (wxMenuItem*)node->GetData();
             if (mi && (mi->GetKind() == wxITEM_RADIO))
@@ -287,7 +295,15 @@ int wxMenuButton::GetSelection() const
 
     const wxMenuItemList &items = m_menu->GetMenuItems();
 
+#if wxUSE_STD_CONTAINERS
+    // as described in wxWidgets "Container Classes" documentation
+    // http://docs.wxwidgets.org/3.0/overview_container.html#overview_container_std
+    // wxList::compatibility_iterator must be used instead of wxList::Node* when
+    // iterating over the list contents
+    for (wxMenuItemList::compatibility_iterator node = items.GetFirst(); node; node = node->GetNext())
+#else
     for (wxMenuItemList::Node *node = items.GetFirst(); node; node = node->GetNext())
+#endif
     {
         wxMenuItem *mi = (wxMenuItem*)node->GetData();
         if (mi && (mi->GetKind() == wxITEM_RADIO))
