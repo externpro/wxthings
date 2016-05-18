@@ -25,6 +25,7 @@
 
 #include "wx/tokenzr.h"
 #include "wx/things/optvalue.h"
+#include "wx/wxcrtvararg.h"
 
 #include "wx/arrimpl.cpp"
 WX_DEFINE_OBJARRAY(wxArrayOptionValue);

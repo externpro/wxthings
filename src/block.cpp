@@ -23,6 +23,7 @@
 #endif // WX_PRECOMP
 
 #include "wx/things/block.h"
+#include "wx/wxcrtvararg.h"
 
 // use this to check to see if there is any overlap after minimizing
 //#define CHECK_BLOCK_OVERLAP 1

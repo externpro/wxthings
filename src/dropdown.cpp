@@ -30,6 +30,7 @@
 #include "wx/things/dropdown.h"
 #include "wx/things/toggle.h"
 #include "wx/renderer.h"
+#include "wx/wxcrtvararg.h"
 
 /* XPM */
 static const char *down_arrow_xpm_data[] = {
