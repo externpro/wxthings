@@ -150,19 +150,11 @@ public:
     wxGenericPen() : wxObject() {}
     wxGenericPen( const wxGenericPen &pen ) : wxObject() { Create(pen); }
     wxGenericPen( const wxPen &pen ) : wxObject() { Create(pen); }
-    wxGenericPen( const wxGenericColour &colour, int width = 1, int style = wxSOLID,
-#if wxCHECK_VERSION(2,9,0)
+    wxGenericPen( const wxGenericColour &colour, int width = 1, wxPenStyle style = wxPENSTYLE_SOLID,
                   wxPenCap cap = wxCAP_ROUND, wxPenJoin join = wxJOIN_ROUND ) : wxObject()
-#else
-                  int cap = wxCAP_ROUND, int join = wxJOIN_ROUND ) : wxObject()
-#endif
         { Create(colour, width, style, cap, join); }
-    wxGenericPen( const wxColour &colour, int width = 1, int style = wxSOLID,
-#if wxCHECK_VERSION(2,9,0)
+    wxGenericPen( const wxColour &colour, int width = 1, wxPenStyle style = wxPENSTYLE_SOLID,
                   wxPenCap cap = wxCAP_ROUND, wxPenJoin join = wxJOIN_ROUND ) : wxObject()
-#else
-                  int cap = wxCAP_ROUND, int join = wxJOIN_ROUND ) : wxObject()
-#endif
         { Create(colour, width, style, cap, join); }
 
     virtual ~wxGenericPen() {}
@@ -176,17 +168,10 @@ public:
     //    Use these to detach this pen from it's refed copies.
     void Create( const wxGenericPen &pen );
     void Create( const wxPen &pen );
-#if wxCHECK_VERSION(2,9,0)
-    void Create( const wxGenericColour &colour, int width = 1, int style = wxSOLID,
+    void Create( const wxGenericColour &colour, int width = 1, wxPenStyle style = wxPENSTYLE_SOLID,
                 wxPenCap cap = wxCAP_ROUND, wxPenJoin join = wxJOIN_ROUND );
-    void Create( const wxColour &colour, int width = 1, int style = wxSOLID,
+    void Create( const wxColour &colour, int width = 1, wxPenStyle style = wxPENSTYLE_SOLID,
                 wxPenCap cap = wxCAP_ROUND, wxPenJoin join = wxJOIN_ROUND );
-#else
-    void Create( const wxGenericColour &colour, int width = 1, int style = wxSOLID,
-                int cap = wxCAP_ROUND, int join = wxJOIN_ROUND );
-    void Create( const wxColour &colour, int width = 1, int style = wxSOLID,
-                int cap = wxCAP_ROUND, int join = wxJOIN_ROUND );
-#endif
 
     // -----------------------------------------------------------------------
     // Set the values of the refed data.
@@ -196,14 +181,9 @@ public:
     void SetColour( const wxGenericColour &colour );
     void SetColour( const wxColour &colour );
     void SetColour( int red, int green, int blue, int alpha=255 );
-#if wxCHECK_VERSION(2,9,0)
     void SetCap( wxPenCap capStyle );
     void SetJoin( wxPenJoin joinStyle );
-#else
-    void SetCap( int capStyle );
-    void SetJoin( int joinStyle );
-#endif
-    void SetStyle( int style );
+    void SetStyle( wxPenStyle style );
     void SetWidth( int width );
     void SetDashes( int number_of_dashes, const wxDash *dash );
 
@@ -214,14 +194,9 @@ public:
     wxGenericColour GetGenericColour() const;
     wxColour GetColour() const;
     int GetWidth() const;
-    int GetStyle() const;
-#if wxCHECK_VERSION(2,9,0)
+    wxPenStyle GetStyle() const;
     wxPenCap GetCap() const;
     wxPenJoin GetJoin() const;
-#else
-    int GetCap() const;
-    int GetJoin() const;
-#endif
     int GetDashes(wxDash **ptr) const;
     int GetDashCount() const;
     wxDash* GetDash() const;
@@ -268,9 +243,9 @@ public:
     wxGenericBrush() : wxObject() {}
     wxGenericBrush( const wxGenericBrush &brush ) : wxObject() { Create(brush); }
     wxGenericBrush( const wxBrush &brush ) : wxObject() { Create(brush); }
-    wxGenericBrush( const wxGenericColour &colour, int style = wxSOLID)
+    wxGenericBrush( const wxGenericColour &colour, wxBrushStyle style = wxBRUSHSTYLE_SOLID)
         : wxObject() { Create(colour, style); }
-    wxGenericBrush( const wxColour &colour, int style = wxSOLID)
+    wxGenericBrush( const wxColour &colour, wxBrushStyle style = wxBRUSHSTYLE_SOLID)
         : wxObject() { Create(colour, style); }
     wxGenericBrush( const wxBitmap& stipple ) : wxObject() { Create(stipple); }
 
@@ -285,8 +260,8 @@ public:
     //    Use these to detach this pen from it's refed copies.
     void Create( const wxGenericBrush &brush );
     void Create( const wxBrush &brush );
-    void Create( const wxGenericColour &colour, int style = wxSOLID );
-    void Create( const wxColour &colour, int style = wxSOLID );
+    void Create( const wxGenericColour &colour, wxBrushStyle style = wxBRUSHSTYLE_SOLID );
+    void Create( const wxColour &colour, wxBrushStyle style = wxBRUSHSTYLE_SOLID );
     void Create( const wxBitmap &stipple );
 
     // -----------------------------------------------------------------------
@@ -297,7 +272,7 @@ public:
     void SetColour( const wxGenericColour &colour );
     void SetColour( const wxColour &colour );
     void SetColour( int red, int green, int blue, int alpha=255 );
-    void SetStyle( int style );
+    void SetStyle( wxBrushStyle style );
     void SetStipple( const wxBitmap& stipple );
 
     // -----------------------------------------------------------------------
@@ -306,11 +281,11 @@ public:
 
     wxGenericColour GetGenericColour() const;
     wxColour GetColour() const;
-    int GetStyle() const;
+    wxBrushStyle GetStyle() const;
     wxBitmap* GetStipple() const;
 
     bool IsHatch() const
-        { return (GetStyle()>=wxFIRST_HATCH) && (GetStyle()<=wxLAST_HATCH); }
+        { return (GetStyle()>=wxBRUSHSTYLE_FIRST_HATCH) && (GetStyle()<=wxBRUSHSTYLE_LAST_HATCH); }
 
     // -----------------------------------------------------------------------
     // Equivalency tests
