@@ -1051,7 +1051,11 @@ void wxFileBrowser::OnSize( wxSizeEvent &event )
         GtkWidget  *widget = GTK_WIDGET(win->m_widget);
         //gtk_widget_set_usize(widget, size.x, size.y); this is deprecated use below
         gtk_widget_set_size_request(widget, size.x, size.y);
+#ifdef __WXGTK3__
+        if (gtk_widget_get_visible(widget))
+#else
         if (GTK_WIDGET_VISIBLE(widget))
+#endif
             gtk_widget_queue_resize(widget);
     }
 #endif //__WXGTK__
