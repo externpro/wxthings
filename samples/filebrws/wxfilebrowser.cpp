@@ -29,7 +29,7 @@
 #include "wx/things/filebrws.h"
 
 /* XPM */
-static char *mondrian_xpm[] = {
+static const char *mondrian_xpm[] = {
 /* columns rows colors chars-per-pixel */
 "32 32 6 1",
 "  c Black",
@@ -229,7 +229,9 @@ void MyFrame::OnGenericFileDlg( wxCommandEvent &WXUNUSED(event) )
     //wxLog *oldLog;
     //oldLog = wxLog::SetActiveTarget(&log);
 
-    wxGenericFileDialog fileDialog(this, wxT("Select a file"));
+    // wxGenericFileDialog isn't part of any standard wx library
+    //wxGenericFileDialog fileDialog(this, wxT("Select a file"));
+    wxFileDialog fileDialog(this, wxT("Select a file"));
 
     //log.Flush();
     //wxLog::SetActiveTarget(oldLog);

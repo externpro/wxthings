@@ -50,3 +50,19 @@ if(DEFINED XP_NAMESPACE)
   set(nameSpace NAMESPACE ${XP_NAMESPACE}::)
 endif()
 install(EXPORT ${targetsFile} DESTINATION lib/cmake ${nameSpace})
+#######################################
+set(samples_filebrws_srcs
+  ../samples/filebrws/wxfilebrowser.cpp
+  ../samples/filebrws/wxfilebrowser.rc
+  )
+set(samples_things_srcs
+  ../samples/things/thingsdemo.cpp
+  ../samples/things/thingsdemo.rc
+  )
+foreach(sample
+  samples_filebrws
+  samples_things
+  )
+  add_executable(${sample} ${${sample}_srcs})
+  target_link_libraries(${sample} PRIVATE ${lib_name})
+endforeach()

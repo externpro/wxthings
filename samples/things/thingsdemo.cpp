@@ -33,7 +33,7 @@
 #include "wx/things/bmpcombo.h"
 
 /* XPM */
-static char *mondrian_xpm[] = {
+static const char *mondrian_xpm[] = {
 /* columns rows colors chars-per-pixel */
 "32 32 6 1",
 "  c Black",
