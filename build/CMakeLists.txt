@@ -1,11 +1,5 @@
 set(lib_name things)
 #######################################
-# include directories
-include_directories(../include)
-#######################################
-# library sources
-########################
-# source
 set(things_srcs
   ../src/block.cpp
   ../src/bmpcombo.cpp
@@ -21,7 +15,6 @@ set(things_srcs
   )
 list(APPEND ${lib_name}_libsrcs ${things_srcs})
 ########################
-# headers
 set(things_hdrs
   ../include/wx/things/block.h
   ../include/wx/things/bmpcombo.h
@@ -39,15 +32,21 @@ set(things_hdrs
   )
 list(APPEND ${lib_name}_libsrcs ${things_hdrs})
 #######################################
-# library
 add_library(${lib_name} STATIC ${${lib_name}_libsrcs})
-set_wxxtarget_properties(${lib_name})
+target_include_directories(${lib_name} PUBLIC $<INSTALL_INTERFACE:$<INSTALL_PREFIX>/${wxInc}>
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../include>
+  )
+target_link_libraries(${lib_name} PUBLIC wx::core)
+list(TRANSFORM WXX_OUTPUT_NAME REPLACE "@TARGET@" "${lib_name}")
+set_target_properties(${lib_name} PROPERTIES OUTPUT_NAME ${WXX_OUTPUT_NAME})
 #######################################
-# install
-install(TARGETS ${lib_name} EXPORT ${PROJECT_NAME}${WX_VER}-targets
+install(TARGETS ${lib_name} EXPORT ${targetsFile}
   RUNTIME DESTINATION bin
   LIBRARY DESTINATION lib
   ARCHIVE DESTINATION lib
   )
-install(FILES ${things_hdrs} DESTINATION include/${wxinc}/wx/things)
-install(EXPORT ${PROJECT_NAME}${WX_VER}-targets DESTINATION lib/cmake)
+install(FILES ${things_hdrs} DESTINATION ${wxInc}/wx/${lib_name})
+if(DEFINED XP_NAMESPACE)
+  set(nameSpace NAMESPACE ${XP_NAMESPACE}::)
+endif()
+install(EXPORT ${targetsFile} DESTINATION lib/cmake ${nameSpace})
