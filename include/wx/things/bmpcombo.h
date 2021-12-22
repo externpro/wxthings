@@ -34,6 +34,8 @@ arrows.
 #include "wx/things/thingdef.h"
 #include "wx/things/dropdown.h"
 
+#include <wx/scrolwin.h>
+
 class WXDLLEXPORT wxMenu;
 class WXDLLEXPORT wxBitmap;
 class WXDLLEXPORT wxKeyEvent;

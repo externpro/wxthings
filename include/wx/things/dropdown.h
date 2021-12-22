@@ -41,6 +41,8 @@ DoShowPopup() - this is called from ShowPopup after creating the m_popupWin.
 #include "wx/popupwin.h"
 #include "wx/things/thingdef.h"
 
+#include <wx/control.h>
+
 class WXDLLEXPORT wxTimer;
 class WXDLLEXPORT wxTimerEvent;
 class WXDLLEXPORT wxCustomButton;

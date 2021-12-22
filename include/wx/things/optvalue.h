@@ -20,6 +20,10 @@ class WXDLLIMPEXP_THINGS wxOptionValue;
 #include "wx/dynarray.h"
 WX_DECLARE_OBJARRAY_WITH_DECL(wxOptionValue, wxArrayOptionValue, class WXDLLIMPEXP_THINGS);
 
+#include <wx/arrstr.h>
+#include <wx/gdicmn.h>
+#include <wx/object.h>
+
 //----------------------------------------------------------------------------
 // Global wxString utilities
 //----------------------------------------------------------------------------

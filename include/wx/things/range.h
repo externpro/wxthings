@@ -16,6 +16,8 @@
 
 #include "wx/things/thingdef.h"
 
+#include <wx/utils.h>
+
 class WXDLLIMPEXP_THINGS wxRangeInt;
 class WXDLLIMPEXP_THINGS wxRangeDouble;
 class WXDLLIMPEXP_THINGS wxRangeIntSelection;

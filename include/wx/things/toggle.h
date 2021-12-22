@@ -74,6 +74,9 @@ You have to #include "wx/tglbtn.h" for EVT_TOGGLEBUTTON
 
 #include "wx/things/thingdef.h"
 
+#include <wx/bitmap.h>
+#include <wx/control.h>
+
 class WXDLLEXPORT wxTimer;
 class WXDLLEXPORT wxTimerEvent;
 
