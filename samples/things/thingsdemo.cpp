@@ -22,6 +22,7 @@
     #include "wx/wx.h"
 #endif
 
+#include "wx/bmpcbox.h"
 #include "wx/buffer.h"
 #include "wx/image.h"
 #include "wx/splitter.h"
