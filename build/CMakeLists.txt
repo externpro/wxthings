@@ -60,5 +60,5 @@ foreach(sample
   samples_things
   )
   add_executable(${sample} WIN32 ${${sample}_srcs})
-  target_link_libraries(${sample} PRIVATE ${lib_name})
+  target_link_libraries(${sample} PRIVATE ${lib_name} wx::adv)
 endforeach()
