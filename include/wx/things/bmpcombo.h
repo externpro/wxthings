@@ -223,5 +223,7 @@ private:
     DECLARE_EVENT_TABLE()
 };
 
+#else
+#include "wx/bmpcbox.h"
 #endif // NOT __WXMAC__
 #endif  // _WX_BMPCOMBO_H_

@@ -359,8 +359,13 @@ wxScrolledWindow *MyFrame::CreateButtonPage(wxWindow *parent)
     wxImage mondrianImage(mondrian.ConvertToImage());
     for (int n=0; n<9; n++)
     {
+#ifdef __WXMAC__
+        bmpcombo1->SetItemBitmap(n, wxBitmap(mondrianImage.Scale(n*3+8,n*3+8)));
+        bmpcombo2->SetItemBitmap(n, wxBitmap(mondrianImage.Scale(16,16)));
+#else
         bmpcombo1->SetBitmap(n, wxBitmap(mondrianImage.Scale(n*3+8,n*3+8)));
         bmpcombo2->SetBitmap(n, wxBitmap(mondrianImage.Scale(16,16)));
+#endif
     }
     // after adding items use Thaw to CalcLayout
     bmpcombo1->Thaw();
